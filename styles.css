@@ -1,0 +1,736 @@
+/*> For all pages <*/
+
+/* Adds no margin and sans-serif font to the whole html */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* Adds the grid template to the specified div (main body div) */
+.gridContainer {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+        "header"
+        "navigation"
+        "main"
+        "reviews"
+        "footer";
+    min-height: 100vh;
+}
+
+/* Marks the header as top layer of the grid, makes it red and adds padding */
+header {
+    grid-area: header;
+    padding: 15px 20px;
+    background: #BE1622;
+}
+
+/* Marks the footer as bottom layer of the grid, makes it blue adds padding and makes another grid for its contents */
+footer {
+    grid-area: footer;
+    padding: 35px;
+    background: #34516C;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-items: center;
+    color: white;
+    position: sticky;
+}
+
+/* Makes all links have a blue color */
+a{
+    color:  #007FB0;
+}
+
+/* Makes the page name white, bold and bigger */
+.headerTitle {
+    font-weight: bold;
+    font-size: 200%;
+    color: white;
+    padding-left: 3%;
+}
+
+/* Moves the navigation to the right, makes it bold, centrally alligned and marks it as navigation to the grid */
+.navigation {
+    grid-area: navigation;
+    padding-top: 25px;
+    vertical-align: middle;
+    float: right;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+}
+
+/* Removes the links underline and color to look as navigation buttons */
+.navigation a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Makes tite text bigger, bold and blue */
+.title {
+    text-align: left;
+    color: #34516C;
+    font-weight: bold;
+    font-size: 175%;
+}
+
+/* Makes text bold, bigger and orange */
+.orange {
+    color: #d3a304;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+/* A class that centers the div */
+.center {
+    display: flex;
+    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+/* Makes the text bold */
+.bold {
+    font-weight: bold;
+}
+
+
+/*> For home page <*/
+
+/* Centers offers frame */
+#offerFrame {
+    display: flex;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* Centers the offers section and makes it contens show in column */
+#offers {
+    padding-top: 10px;
+    display: flex;
+    width: 800px;
+    margin: auto;
+    flex-direction: column;
+}
+
+/* Makes a box for each offer */
+.offerButton {
+    width: 30%;
+    display: inline;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+}
+
+/* Makes the div centered using flex */
+.home {
+    padding-top: 10px;
+    grid-area: main;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Adds an invinsible border to add spacing between the div contens */
+.home div:not(.video){
+    border: 15px solid white;
+}
+
+/* Centers the products filters */
+.filters {
+    padding-top: 15px;
+    width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Adds left spacing to the filters span */
+.filters span{
+    padding-left: 15px;
+}
+
+/* Hides or shows the top button when needed */
+#topButton {
+    display: none;
+    position: fixed;
+    bottom: 50%; 
+    left: 10px; 
+    z-index: 99; /* Make sure it does not overlap */
+    background-color: #007FB0; 
+    color: white;
+    padding: 15px; 
+    border-radius: 100%;
+    font-size: 110%;
+}
+
+/* Marks the products div as main layer in grid, centers it using flex and makes the
+ contents change line when in the end of the line while having same spacing between them */
+#products {
+    grid-area: main;
+    padding: 20px 20px;
+    display: flex;
+    width: 850px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap : 25px;
+    column-gap: 25px;
+    margin: 0 auto;
+}
+
+
+/*> For products page <*/
+
+/**> Filters <**/
+
+/* Centers all boxes and buttons in filters section */
+#searchProduct {
+    padding-top: 15px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Changes searchbox size */
+#searchProductBox {
+    height: 30px;
+    font-size: 14px;
+    margin-right: 2px;
+}
+
+/* Changes search button color and shape */
+#searchProductButton {
+    background: #BE1622;
+    color: white;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+/* Changes the links (of filters) to show as red buttons */
+#filterButtons a {
+    text-decoration: none;
+    border: 2px solid black;
+    margin-left: 10px;
+    padding: 10px;
+    background: #BE1622;
+    color: white;
+}
+
+/* Adds space on top of filter section */
+#filterButtons {
+    margin-top: 9px;
+}
+
+/**> Products <**/
+
+/* Makes each product in the products page have a border, a background color and a grid template */
+.productItem {
+    width: 29.5%;
+    border : 1px solid black;
+    background: lightgrey;
+    display: grid;
+    grid-template-areas: 
+    "Image"    
+    "Title"
+    "Details""Link"
+    "Price"
+    "Button";
+}
+
+.productItem :not(img){
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Marks the image for the image grid layer and adds spacing at the bottom */
+.productItem img {
+    grid-area: Image;
+    padding-bottom: 10px;
+}
+
+/* Marks the title as the title grid layer */
+.productItem .productTitle {
+    grid-area: Title;
+}
+
+/* Marks the details as the details grid layer */
+.productItem .details {
+    grid-area: Details;
+}
+
+/* Marks the links as the links grid layer and makes them blue */
+.productItem a {
+    grid-area: Link;
+    display: inline;
+    color: #007FB0;
+}
+
+/* Marks the price as the price grid layer, adds spacing to the left and makes it bold */
+.productItem .price{
+    grid-area: Price;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Marks the buy button as the button grid layer, changes size and centers it */
+.productItem .productBuyBtn {
+    grid-area: Button;
+    height: 30px;
+    width: 30%;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+/**> Single Item <**/
+
+/* Makes a centered div to have a product inside */
+#singleProduct {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 150%;
+}
+
+/* Single product takes whole div */
+#singleProduct div {
+    width: 100%;
+}
+
+/* Read more link disappears */
+#singleProduct a {
+    display: none;
+}
+
+/* Makes the button bigger */
+#singleProduct button {
+    font-size: 150%;
+    height: 150%;
+}
+
+/* Makes the image bigger */
+#singleProduct img {
+    width: 800px;
+}
+
+/* Makes the form have same size as the div */
+#singleProduct .productItem{
+    width: 800px;
+}
+
+/* Makes the product have a border, a background color and appear as flex */
+#productItem {
+    grid-area: main;
+    border: 1px solid black;
+    background: lightgrey;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 150%;
+}
+
+/* Adds spacing on all the contents of item except image */
+#productItem *:not(img) {
+    padding: 15px 15px 15px 15px;
+}
+
+/* Change size and center the button and adds spacing under it */
+#singleProduct .productBuyBtn {
+    width: 33%;
+    height: 75px;
+    font-size: 150%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+/* Makes the price bold */
+#productItem .price{
+    font-weight: bold;
+}
+
+/**> Reviews <**/
+
+/* Shows reviews as grids */
+.review {
+    grid-area: reviews;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    border-top: 2px solid black;
+    text-align: left;
+}
+
+/* Makes the reviews text bigger */
+.review p {
+    font-size: 20px;
+}
+
+/**> Create Review <**/
+
+/* Shows reviews to the section between product and footer */
+#reviews {
+    grid-area: reviews;
+}
+
+/* Centers a box with border and color */
+#createReview {
+    grid-area: reviews;
+    border: 2px solid black;
+    background: #34516C;
+    padding: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    width: unset;
+}
+
+/* Adds spacing on top of each content except its text-labels */
+#createReview > *:not(p) {
+    padding-top: 10px;
+}
+
+/* Changes color and text size */
+#createReview p {
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* Shows the stars and title on same line */
+#reviewFirstLine {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Makes the title box bigger */
+#reviewTitleBox {
+    font-size: 24px;
+    margin: auto;
+    width: 500px;
+    height: 50px;
+}
+
+/* Makes the descreption box bigger and not resizable */
+#reviewDescBox {
+    font-size: 24px;
+    resize: none;
+    width: 750px;
+    height: 100px;
+}
+
+/* Makes the submit review button bigger and green */
+#reviewSubmitBtn {
+    height: 50px;
+    width: 200px;
+    background: green;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px
+}
+
+/* Makes a box for the star rating */
+#starRating {
+    margin: auto;
+    border: 1px solid black;
+    padding: 0 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* Makes each star be a pointer and have color while adding transition attributes */
+.star {
+    cursor: pointer;
+    transition: color.2s, transform .2s;
+    font-size: 50px;
+    color: lightgrey;
+}
+
+/* Changes color and size when hover above */
+.star:hover {
+    color: orange;
+    transform: scale(1.2);
+}
+
+/* Changes the color for the rest of the stars that should be selected */
+.star:hover ~ .star {
+    color: orange;
+}
+
+/* If user chnages opinion and chooses another star, the new star will be orange */
+.star[isClicked]:not([isClicked="false"]) {
+    color: orange;
+}
+
+/* If user chnages opinion and chooses another star, the stars before new star will be orange */
+.star[isClicked]:not([isClicked="false"]) ~ .star {
+    color: orange;
+}
+
+/* Creates an invinsible box under the stars box to show warning when user doesn't chooses a rating */
+#starReviewRating {
+    opacity: 0;
+    height: 0;
+    width: 400px;
+    float: left;
+}
+
+
+/*> For cart page <*/
+
+/* Marks the cart div as the main layer of page and centers it using flex */
+.cart {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+/* Creates the cart table  */
+#cartTable {
+    display: table;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 800px;
+}
+
+/* Centers the table */
+#cartTable table{
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+/* Adds a red background and white letters for the header row */
+#cartTable table .head{
+    background: #BE1622;
+    color: white;
+}
+
+/* Adds spacing between rows */
+#cartTable table tr * {
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+}
+
+/* Adds a border around the rows and columns */
+#cartTable *:not(img) {
+    border: 1px solid black;
+}
+
+/* Adds a max size for the cart images */
+#cartList tr td img{
+    width: 75px;
+    overflow: clip;
+    padding-right: 15px;
+}
+
+/* Aligns all table contents to be vertically centered */
+#cartList *{
+    vertical-align: middle;
+}
+
+/* Centers the text when cart is empty */
+#emptyCartError {
+    text-align: center;
+}
+
+/* Shows all buttons in same line */
+#cartBtns {
+    display: inline;
+}
+
+/* Makes the checkout button be on the right */
+#checkout {
+    float: right;
+}
+
+/* Makes the buttons have same space between them */
+#cartBtns {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+/* Adds a line on top of log in when its visible */
+#login {
+    border-top: 2px solid grey;
+}
+
+#loginForm input {
+    height: 30px;
+    width: 500px;
+    font-size: 14px;
+}
+
+#loginForm label {
+    font-weight: bold;
+}
+
+
+/*> For sign up page <*/
+
+/* Centers the contens of the sign up form */
+#signUpForm {
+    justify-content: center;
+}
+
+/* Makes the label text bold */
+#signUpForm label {
+    font-weight: bold;
+}
+
+/* Makes the input boxes bigger */
+#signUpForm input {
+    height: 30px;
+    width: 500px;
+    font-size: 14px;
+}
+
+/* Makes the address box bigger and not resizable */
+#addressBox {
+    width: 500px;
+    height: 200px;
+    resize: none;
+    font-size: 14px;
+}
+
+
+/*> For hamburger menu <*/
+
+/* Style the links inside the navigation bar */
+.navigation a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the bakcground color of navigations on hover */
+.navigation a:hover {
+    background-color: #333;
+}
+
+/* Hides all links when the icon is displayed */
+.navigation .icon {
+    display: none;
+}
+
+/* When the width of screen is less than 900px (phones) */
+@media screen and (max-width: 900px) {
+
+    /* Hides all links */
+    .navigation a {
+        display: none;
+    }
+
+    /* Removes top spacing */
+    .navigation {
+        padding-top: 0;
+    }
+
+    /* Positions icon */
+    .navigation a.icon {
+        float: right;
+        display: block;
+    }
+
+    /* The "responsive" class is added to the navigation with JavaScript when the user clicks on the icon. This
+    class makes the navigation look good on small screens (display the links vertically instead of horizontally) */
+    .navigation.responsive {
+        position: relative;
+        overflow: hidden;
+        background-color: #007FB0;
+    }
+
+    /* Positions the icon on top left of the div */
+    .navigation.responsive .icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    /* Makes the navigation left from the icon in a column */
+    .navigation.responsive a:not(.icon) {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    /* Makes the title text bigger */
+    .title{
+        font-size: 300%;
+    }
+
+    /* Makes the page  */
+    .headerTitle{
+        font-size: 150%;
+    }
+
+    /* Changes the div from centered to full page width */
+    .home, .cart {
+        width: 100%;
+    }
+
+    /* Makes the address links and contact info from footer, smaller */
+    .address, .link, .contact {
+        font-size: 70%;
+    }
+
+    /* Locks the video aspect ratio and scales it down based on the page */
+    .video {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    }
+
+    /* Then style the iframe to fit in the container div with full height and width */
+    .video iframe, .video video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* When the width of screen is between 800px and 1200px (tablets) */
+@media only screen and (max-width: 1200px) and (min-width: 901px) {
+
+    /* Makes the title text bigger */
+    .title{
+        font-size: 200%;
+    }
+
+    /* Makes the page title bigger */
+    .headerTitle{
+        font-size: 175%;
+    }
+
+    /* Makes the address, links and contact info on footer smaller */
+    .address, .link, .contact {
+        font-size: 85%;
+    }
+}
